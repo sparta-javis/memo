@@ -13,7 +13,7 @@ class Memo {
 
     Memo(String name, int password, String post) {
         this.name = name;
-        this.password = password;철
+        this.password = password;
         this.post = post;
         this.createdData = getCurrentTimestamp();
     }

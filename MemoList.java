@@ -1,5 +1,6 @@
 package team.memo;
 
+import java.util.Scanner;
 import java.util.*;
 
 //이승철 브랜치
@@ -19,6 +20,7 @@ class MemoList {
     }
 
     //메모 수정하기란
+    Scanner scanner = new Scanner(System.in);
     private static void modifyMemo() {
         System.out.println("==== 메모 수정 ====");
         System.out.print("비밀번호: ");
