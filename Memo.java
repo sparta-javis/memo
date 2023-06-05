@@ -2,7 +2,7 @@ package team.memo;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-//이건 이승철 브랜치입니다 브랜치입니다.sdfsfafsfdfss dfsf
+//이건 이승철 브랜치입니다 브랜치입니다.sdfsfafsfdfss dfsf sfdsfaf
 class Memo {
     String name;
     private int password;
