@@ -58,27 +58,28 @@ public class Main {
                         printRecentMemoList(memoList);
                     }
                     break;
-    //            case 3:
-    //            printMemoList(memoList);
-    //                System.out.print("수정할 글 번호를 입력하세요: ");
-    //                scanner.nextLine(); // Consume the newline character
-    //                if (num >= 1 && num <= memos.size()) {
-    //                    memoList.modifyMemo(num - 1);
-    //                } else {
-    //                    System.out.println("잘못된 글 번호입니다.");
-    //                }
-    //                break;
-    //            case 4:
-    //            printMemoList(memoList);
-    //                System.out.print("삭제할 글 번호를 입력하세요: ");
-    //                num = scanner.nextInt();
-    //                scanner.nextLine(); // Consume the newline character
-    //                if (num >= 1 && num <= memos.size()) {
-    //                    memoList.deleteMemo(num - 1);
-    //                } else {
-    //                    System.out.println("잘못된 글 번호입니다.");
-    //                }
-    //                break;
+                case 3:
+                printMemoList(memoList);
+                    System.out.print("수정할 글 번호를 입력하세요: ");
+                    int num = scanner.nextInt();
+                    scanner.nextLine(); // Consume the newline character
+                    if (num >= 1 && num <= memoList.getMemos().size()) {
+                        memoList.modifyPost(num - 1);
+                    } else {
+                        System.out.println("잘못된 글 번호입니다.");
+                    }
+                    break;
+                case 4:
+                    printMemoList(memoList);
+                    System.out.print("삭제할 글 번호를 입력하세요: ");
+                    num = scanner.nextInt();
+                    scanner.nextLine(); // Consume the newline character
+                    if (num >= 1 && num <= memoList.getMemos().size()) {
+                        memoList.deleteMemo(num - 1);
+                    } else {
+                        System.out.println("잘못된 글 번호입니다.");
+                    }
+                    break;
                 case 5:
                     recentMemo(memoList);
                     handleMainMenuInput();

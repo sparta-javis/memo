@@ -5,6 +5,7 @@ import java.util.*;
 //손명지 브랜치
 
 class MemoList {
+    public int setMemos;
     private List<Memo> memos;
 
     public MemoList() {
@@ -40,6 +41,46 @@ class MemoList {
         Memo memo = new Memo(name, password, post);
         memos.add(memo);
         System.out.println("메모가 추가되었습니다.");
+    }
+
+    public void modifyPost(int key) {
+        if (key >= 0 && key < memos.size()) {
+            Memo memo = memos.get(key);
+            System.out.print("Enter the password: ");
+            Scanner scanner = new Scanner(System.in);
+            int password = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            if (memo.getPassword() == password) {
+                System.out.print("Enter the new post: ");
+                String newPost = scanner.nextLine();
+                memo.getNewPost(newPost);
+                System.out.println("Post modified successfully.");
+            } else {
+                System.out.println("Incorrect password. Post cannot be modified.");
+            }
+        } else {
+            System.out.println("No memo found for the given key.");
+        }
+    }
+
+    public void deleteMemo(int key) {
+        if (key >= 0 && key < memos.size()) {
+            Memo memo = memos.get(key);
+            System.out.print("Enter the password: ");
+            Scanner scanner = new Scanner(System.in);
+            int password = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            if (memo.getPassword() == password) {
+                memos.remove(key);
+                System.out.println("Memo deleted successfully.");
+            } else {
+                System.out.println("Incorrect password. Memo cannot be deleted.");
+            }
+        } else {
+            System.out.println("No memo found for the given key.");
+        }
     }
 
 }

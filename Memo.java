@@ -26,4 +26,8 @@ class Memo {
     public String getName() { return name; }
     public String getPost() { return post; }
     public Timestamp getCreatedData() { return createdData; }
+
+    public int getPassword() { return password; }
+
+    public void getNewPost(String newPost) { post = newPost; }
 }
