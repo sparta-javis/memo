@@ -4,8 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main {
+    private static MemoList memoList;
+
     public static void main(String[] args) {
-        MemoList memoList = new MemoList();
+        memoList = new MemoList();
 
         System.out.println("[ 메모 리스트 ]\n");
         recentMemo(memoList); // 최신 메모 하나만 출력
@@ -33,46 +35,58 @@ public class Main {
     }
 
     private static void handleMainMenuInput() {
+        while(true) {
+            System.out.println();
+            System.out.println("1. 입력    2. 목록 보기    3. 수정    4. 삭제    5. 처음으로    6. 종료");
+            Scanner scanner = new Scanner(System.in);
+            int input = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+            
+            switch(input) {
 
-        System.out.println("1. 입력    2. 목록 보기    3. 수정    4. 삭제    5. 종료");
-        Scanner scanner = new Scanner(System.in);
-        int input = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+                case 1:
+                    memoList.addMemo();
+                    break;
 
-        MemoList memoList = new MemoList();
-
-        switch(input) {
-//            case 1:
-//                memoList.addMemo
-//                break;
-            case 2:
-                printMemoList(memoList);
-                break;
-//            case 3:
-//            printMemoList(memoList);
-//                System.out.print("수정할 글 번호를 입력하세요: ");
-//                scanner.nextLine(); // Consume the newline character
-//                if (num >= 1 && num <= memos.size()) {
-//                    memoList.modifyMemo(num - 1);
-//                } else {
-//                    System.out.println("잘못된 글 번호입니다.");
-//                }
-//                break;
-//            case 4:
-//            printMemoList(memoList);
-//                System.out.print("삭제할 글 번호를 입력하세요: ");
-//                num = scanner.nextInt();
-//                scanner.nextLine(); // Consume the newline character
-//                if (num >= 1 && num <= memos.size()) {
-//                    memoList.deleteMemo(num - 1);
-//                } else {
-//                    System.out.println("잘못된 글 번호입니다.");
-//                }
-//                break;
-            case 5:
-                System.exit(0);
-            default:
-                break;
+                case 2:
+                    System.out.println("1. 생성순    2. 최신순");
+                    int list = scanner.nextInt();
+                    scanner.nextLine();
+                    if (list == 1) {
+                        printMemoList(memoList);
+                    } else if (list == 2) {
+                        printRecentMemoList(memoList);
+                    }
+                    break;
+    //            case 3:
+    //            printMemoList(memoList);
+    //                System.out.print("수정할 글 번호를 입력하세요: ");
+    //                scanner.nextLine(); // Consume the newline character
+    //                if (num >= 1 && num <= memos.size()) {
+    //                    memoList.modifyMemo(num - 1);
+    //                } else {
+    //                    System.out.println("잘못된 글 번호입니다.");
+    //                }
+    //                break;
+    //            case 4:
+    //            printMemoList(memoList);
+    //                System.out.print("삭제할 글 번호를 입력하세요: ");
+    //                num = scanner.nextInt();
+    //                scanner.nextLine(); // Consume the newline character
+    //                if (num >= 1 && num <= memos.size()) {
+    //                    memoList.deleteMemo(num - 1);
+    //                } else {
+    //                    System.out.println("잘못된 글 번호입니다.");
+    //                }
+    //                break;
+                case 5:
+                    recentMemo(memoList);
+                    handleMainMenuInput();
+                case 6:
+                    System.exit(0);
+                default:
+                    break;
+            }
         }
     }
 
@@ -85,4 +99,13 @@ public class Main {
         }
     }
 
+    private static void printRecentMemoList(MemoList memoList) {
+        List<Memo> memos = memoList.getMemos();
+        Collections.sort(memos, Comparator.comparing(Memo::getCreatedData).reversed());
+        for (int i=0; i<memos.size(); i++) {
+            int num = i+1;
+            Memo memo = memos.get(i);
+            System.out.println(num + ". " + memos.get(i).name + " | " + memos.get(i).post);
+        }
+    }
 }

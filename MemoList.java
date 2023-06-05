@@ -26,4 +26,20 @@ class MemoList {
         this.memos = memos;
     }
 
+    public void addMemo() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("새로운 메모를 입력하세요.");
+        System.out.print("이름: ");
+        String name = scanner.nextLine();
+        System.out.print("비밀번호: ");
+        int password = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+        System.out.print("내용: ");
+        String post = scanner.nextLine();
+
+        Memo memo = new Memo(name, password, post);
+        memos.add(memo);
+        System.out.println("메모가 추가되었습니다.");
+    }
+
 }
