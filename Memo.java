@@ -3,7 +3,8 @@ package team.memo;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-//
+// 손명지 브랜치
+
 class Memo {
     String name;
     private int password;

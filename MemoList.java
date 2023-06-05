@@ -2,6 +2,8 @@ package team.memo;
 
 import java.util.*;
 
+//손명지 브랜치
+
 class MemoList {
     private List<Memo> memos;
     private Scanner scanner;
