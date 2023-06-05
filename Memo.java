@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 class Memo {
+    // 이곳은 희석이 브렌치 입니다.
     String name;
     private int password;
     String post;
