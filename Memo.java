@@ -6,10 +6,11 @@ import java.time.LocalDateTime;
 // 손명지 브랜치
 
 class Memo {
-    String name;
+    private String name;
     private int password;
-    String post;
-    Timestamp createdData;
+    private String post;
+    private Timestamp createdData;
+    private int memoNumber; // Memo number added
 
     Memo(String name, int password, String post) {
         this.name = name;
@@ -23,11 +24,37 @@ class Memo {
         return Timestamp.valueOf(now);
     }
 
-    public String getName() { return name; }
-    public String getPost() { return post; }
-    public Timestamp getCreatedData() { return createdData; }
+    public String getName() {
+        return name;
+    }
 
-    public int getPassword() { return password; }
+    public String getPost() {
+        return post;
+    }
 
-    public void getNewPost(String newPost) { post = newPost; }
+    public Timestamp getCreatedData() {
+        return createdData;
+    }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
+    public void setModifiedData(Timestamp modifiedData) {
+        this.createdData = modifiedData;
+    }
+
+    public void setMemoNumber(int memoNumber) {
+        this.memoNumber = memoNumber;
+    }
+
+    public int getMemoNumber() {
+        return memoNumber;
+    }
 }
+
+
