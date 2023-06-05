@@ -3,29 +3,28 @@ package team.memo;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-// 손명지 브랜치
-
 class Memo {
     private String name;
     private int password;
     private String post;
     private Timestamp createdData;
-    private int memoNumber; // Memo number added
+    private Timestamp modifiedData; // Modified timestamp added
+    private int memoNumber;
 
-    Memo(String name, int password, String post) {
+    public Memo(String name, int password, String post) {
         this.name = name;
         this.password = password;
         this.post = post;
         this.createdData = getCurrentTimestamp();
-    }
-
-    private Timestamp getCurrentTimestamp() {
-        LocalDateTime now = LocalDateTime.now();
-        return Timestamp.valueOf(now);
+        this.modifiedData = getCurrentTimestamp(); // Initialize modified timestamp
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getPassword() {
+        return password;
     }
 
     public String getPost() {
@@ -36,16 +35,18 @@ class Memo {
         return createdData;
     }
 
-    public int getPassword() {
-        return password;
+    public Timestamp getModifiedData() {
+        return modifiedData;
     }
 
     public void setPost(String post) {
         this.post = post;
+        this.modifiedData = getCurrentTimestamp(); // Update modified timestamp
     }
 
-    public void setModifiedData(Timestamp modifiedData) {
-        this.createdData = modifiedData;
+    private Timestamp getCurrentTimestamp() {
+        LocalDateTime now = LocalDateTime.now();
+        return Timestamp.valueOf(now);
     }
 
     public void setMemoNumber(int memoNumber) {
@@ -56,5 +57,3 @@ class Memo {
         return memoNumber;
     }
 }
-
-
