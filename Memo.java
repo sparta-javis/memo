@@ -2,7 +2,9 @@ package team.memo;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-//이건 이승철 브랜치입니다 브랜치입니다.sdfsfafsfdfss dfsf sfdsfaf
+
+// 이승철 브랜치
+
 class Memo {
     String name;
     private int password;
@@ -11,7 +13,7 @@ class Memo {
 
     Memo(String name, int password, String post) {
         this.name = name;
-        this.password = password;
+        this.password = password;철
         this.post = post;
         this.createdData = getCurrentTimestamp();
     }
@@ -20,4 +22,9 @@ class Memo {
         LocalDateTime now = LocalDateTime.now();
         return Timestamp.valueOf(now);
     }
+
+    public String getName() { return name; }
+    public String getPost() { return post; }
+    public Timestamp getCreatedData() { return createdData; }
+
 }
