@@ -7,17 +7,47 @@ import java.time.LocalDateTime;
 // 이승철 브랜치
 
 class Memo {
+
+    private String name;
     // 이곳은 희석이 브렌치 입니다.
     String name;
     private int password;
-    String post;
-    Timestamp createdData;
+    private String post;
+    private Timestamp createdData;
+    private Timestamp modifiedData; // Modified timestamp added
+    private int memoNumber;
 
-    Memo(String name, int password, String post) {
+    public Memo(String name, int password, String post) {
         this.name = name;
         this.password = password;
         this.post = post;
         this.createdData = getCurrentTimestamp();
+        this.modifiedData = getCurrentTimestamp(); // Initialize modified timestamp
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public String getPost() {
+        return post;
+    }
+
+    public Timestamp getCreatedData() {
+        return createdData;
+    }
+
+    public Timestamp getModifiedData() {
+        return modifiedData;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+        this.modifiedData = getCurrentTimestamp(); // Update modified timestamp
     }
 
     private Timestamp getCurrentTimestamp() {
@@ -25,6 +55,15 @@ class Memo {
         return Timestamp.valueOf(now);
     }
 
+
+    public void setMemoNumber(int memoNumber) {
+        this.memoNumber = memoNumber;
+    }
+
+    public int getMemoNumber() {
+        return memoNumber;
+    }
+}
 
     public String getName() { return name; }
     public String getPost() { return post; }
@@ -46,4 +85,4 @@ class Memo {
     //     return memos;
     // } 를 통해서 memos 라는 리스트를 만들었을 때
     // memos.add(new Memo(++postNumber,name,password,memoText,localDateTime));
-}
+// }
