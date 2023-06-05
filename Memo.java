@@ -4,6 +4,8 @@ package team.memo;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+// 이승철 브랜치
+
 class Memo {
     // 이곳은 희석이 브렌치 입니다.
     String name;
@@ -23,6 +25,12 @@ class Memo {
         return Timestamp.valueOf(now);
     }
 
+
+    public String getName() { return name; }
+    public String getPost() { return post; }
+    public Timestamp getCreatedData() { return createdData; }
+
+}
     // 김희석 MemoVO 관련 주석
 
     // 0. 변경하는 인풋에서 현재시간 업데이트
