@@ -3,6 +3,7 @@ package team.memo;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+//
 class Memo {
     String name;
     private int password;
