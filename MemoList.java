@@ -22,4 +22,8 @@ class MemoList {
         return new ArrayList<>(memos);
     }
 
+    public void setMemos(List<Memo> MemoList) {
+        this.memos = memos;
+    }
+
 }

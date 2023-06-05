@@ -22,4 +22,8 @@ class Memo {
         LocalDateTime now = LocalDateTime.now();
         return Timestamp.valueOf(now);
     }
+
+    public String getName() { return name; }
+    public String getPost() { return post; }
+    public Timestamp getCreatedData() { return createdData; }
 }
