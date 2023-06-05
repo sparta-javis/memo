@@ -8,15 +8,12 @@ public class Main {
         MemoList memoList = new MemoList();
 
         System.out.println("[ 메모 리스트 ]\n");
-
-        // 테스트 목록 출력
-        List<Memo> memos = memoList.getMemos();
-        printMemos(memoList);
+        recentMemo(memoList); // 최신 메모 하나만 출력
 
         handleMainMenuInput();
     }
 
-    private static void printMemos(MemoList memoList) {
+    private static void recentMemo(MemoList memoList) {
         List<Memo> memos = memoList.getMemos();
 
         if (!memos.isEmpty()) {
@@ -40,43 +37,51 @@ public class Main {
         System.out.println("1. 입력    2. 목록 보기    3. 수정    4. 삭제    5. 종료");
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
-        int num = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        MemoList memoList = new MemoList();
 
         switch(input) {
-            case 1:
-                memoList.addMemo
-                break;
+//            case 1:
+//                memoList.addMemo
+//                break;
             case 2:
-                List<Memo> memos = memoList.getMemos();
-                for (int i=0; i<memos.size(); i++) {
-                    num = i + 1;
-                    Memo memo = memos.get(i);
-                    System.out.println(num + ". " + memos.get(i).name + " | " + memos.get(i).post);
-                }
+                printMemoList(memoList);
                 break;
-            case 3:
-                System.out.print("수정할 글 번호를 입력하세요: ");
-                scanner.nextLine(); // Consume the newline character
-                if (num >= 1 && num <= memos.size()) {
-                    memoList.modifyMemo(num - 1);
-                } else {
-                    System.out.println("잘못된 글 번호입니다.");
-                }
-                break;
-            case 4:
-                System.out.print("삭제할 글 번호를 입력하세요: ");
-                num = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
-                if (num >= 1 && num <= memos.size()) {
-                    memoList.deleteMemo(num - 1);
-                } else {
-                    System.out.println("잘못된 글 번호입니다.");
-                }
-                break;
+//            case 3:
+//            printMemoList(memoList);
+//                System.out.print("수정할 글 번호를 입력하세요: ");
+//                scanner.nextLine(); // Consume the newline character
+//                if (num >= 1 && num <= memos.size()) {
+//                    memoList.modifyMemo(num - 1);
+//                } else {
+//                    System.out.println("잘못된 글 번호입니다.");
+//                }
+//                break;
+//            case 4:
+//            printMemoList(memoList);
+//                System.out.print("삭제할 글 번호를 입력하세요: ");
+//                num = scanner.nextInt();
+//                scanner.nextLine(); // Consume the newline character
+//                if (num >= 1 && num <= memos.size()) {
+//                    memoList.deleteMemo(num - 1);
+//                } else {
+//                    System.out.println("잘못된 글 번호입니다.");
+//                }
+//                break;
             case 5:
                 System.exit(0);
             default:
                 break;
+        }
+    }
+
+    private static void printMemoList(MemoList memoList) {
+        List<Memo> memos = memoList.getMemos();
+        for (int i=0; i<memos.size(); i++) {
+            int num = i + 1;
+            Memo memo = memos.get(i);
+            System.out.println(num + ". " + memos.get(i).name + " | " + memos.get(i).post);
         }
     }
 
